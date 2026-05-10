@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Selection — Ido test 99</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#172B4D;color:#fff;min-height:100vh;padding:16px;line-height:1.4}
+h1,h2,h3{font-family:'DM Serif Display',serif;font-weight:400}
+h1{font-size:1.75rem;text-align:center;margin-bottom:8px;color:#8DC442}
+.subtitle{text-align:center;font-size:0.875rem;color:#C4DDE4;margin-bottom:20px}
+.form-container{max-width:480px;margin:0 auto}
+.global-toggles{background:#37738C;border-radius:8px;padding:12px;margin-bottom:16px}
+.toggle-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.toggle-row:last-child{margin-bottom:0}
+.toggle-row input[type="checkbox"]{width:18px;height:18px;accent-color:#8DC442}
+.toggle-row label{font-size:0.875rem;flex:1}
+.toggle-row input[type="text"]{flex:1;height:36px;border:none;border-radius:4px;padding:0 10px;font-size:0.875rem;font-family:inherit}
+.room-section{background:rgba(255,255,255,0.05);border-radius:8px;padding:12px;margin-bottom:12px;border-left:3px solid #8DC442}
+.room-title{font-size:1.125rem;color:#8DC442;margin-bottom:10px}
+.surface-group{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.surface-group:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.surface-label{font-size:0.75rem;color:#C4DDE4;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.color-input{width:100%;height:40px;border:none;border-radius:4px;padding:0 10px;font-size:0.875rem;font-family:inherit;margin-bottom:6px}
+.sheen-pills{display:flex;flex-wrap:wrap;gap:4px}
+.sheen-pill{display:none}
+.sheen-label{padding:6px 12px;background:rgba(255,255,255,0.1);border-radius:20px;font-size:0.75rem;cursor:pointer;transition:all 0.2s;border:1px solid transparent}
+.sheen-pill:checked+.sheen-label{background:#8DC442;color:#172B4D;font-weight:500}
+.sheen-label:hover{border-color:#8DC442}
+.notes-section{margin-top:16px}
+.notes-section label{display:block;font-size:0.875rem;color:#C4DDE4;margin-bottom:6px}
+.notes-section textarea{width:100%;height:80px;border:none;border-radius:4px;padding:10px;font-size:0.875rem;font-family:inherit;resize:vertical}
+.submit-btn{width:100%;height:48px;background:#8DC442;color:#172B4D;border:none;border-radius:8px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;margin-top:16px;transition:background 0.2s}
+.submit-btn:hover{background:#7abc35}
+.footer{text-align:center;margin-top:20px;font-size:0.75rem;color:#C4DDE4}
+</style>
+</head>
+<body>
+<div class="form-container">
+<h1>Color Selection Form</h1>
+<p class="subtitle">Ido test 99 — Estimate #999</p>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="cbd1d5e9-120e-4be3-9748-b11c9c33324f">
+<input type="hidden" name="subject" value="Color Selections — Ido test 99">
+<input type="hidden" name="redirect" value="https://web3forms.com/success">
+<input type="hidden" name="client_name" value="Ido test 99">
+<input type="hidden" name="estimate_number" value="999">
+
+<div class="global-toggles">
+<div class="toggle-row">
+<input type="checkbox" id="whole-house-walls" name="whole_house_walls_enabled" value="yes">
+<label for="whole-house-walls">Whole-House Wall Color:</label>
+<input type="text" name="whole_house_wall_color" placeholder="Color name or code">
+</div>
+<div class="toggle-row">
+<input type="checkbox" id="whole-house-trim" name="whole_house_trim_enabled" value="yes">
+<label for="whole-house-trim">Whole-House Trim Color:</label>
+<input type="text" name="whole_house_trim_color" placeholder="Color name or code">
+</div>
+</div>
+
+<div class="room-section">
+<h2 class="room-title">Foyer</h2>
+
+<div class="surface-group">
+<div class="surface-label">Ceiling</div>
+<input type="text" class="color-input" name="foyer_ceiling_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="foyer_ceiling_sheen" id="foyer-ceil-flat" value="Flat" checked>
+<label class="sheen-label" for="foyer-ceil-flat">Flat</label>
+<input type="radio" class="sheen-pill" name="foyer_ceiling_sheen" id="foyer-ceil-matte" value="Matte">
+<label class="sheen-label" for="foyer-ceil-matte">Matte</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Walls</div>
+<input type="text" class="color-input" name="foyer_walls_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="foyer_walls_sheen" id="foyer-walls-flat" value="Flat">
+<label class="sheen-label" for="foyer-walls-flat">Flat</label>
+<input type="radio" class="sheen-pill" name="foyer_walls_sheen" id="foyer-walls-matte" value="Matte">
+<label class="sheen-label" for="foyer-walls-matte">Matte</label>
+<input type="radio" class="sheen-pill" name="foyer_walls_sheen" id="foyer-walls-egg" value="Eggshell" checked>
+<label class="sheen-label" for="foyer-walls-egg">Eggshell</label>
+<input type="radio" class="sheen-pill" name="foyer_walls_sheen" id="foyer-walls-satin" value="Satin">
+<label class="sheen-label" for="foyer-walls-satin">Satin</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Baseboard</div>
+<input type="text" class="color-input" name="foyer_baseboard_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="foyer_baseboard_sheen" id="foyer-base-satin" value="Satin" checked>
+<label class="sheen-label" for="foyer-base-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="foyer_baseboard_sheen" id="foyer-base-semi" value="Semi-Gloss">
+<label class="sheen-label" for="foyer-base-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="foyer_baseboard_sheen" id="foyer-base-gloss" value="Gloss">
+<label class="sheen-label" for="foyer-base-gloss">Gloss</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Doors (2)</div>
+<input type="text" class="color-input" name="foyer_doors_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="foyer_doors_sheen" id="foyer-door-satin" value="Satin" checked>
+<label class="sheen-label" for="foyer-door-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="foyer_doors_sheen" id="foyer-door-semi" value="Semi-Gloss">
+<label class="sheen-label" for="foyer-door-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="foyer_doors_sheen" id="foyer-door-gloss" value="Gloss">
+<label class="sheen-label" for="foyer-door-gloss">Gloss</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Door Frames (2)</div>
+<input type="text" class="color-input" name="foyer_doorframes_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="foyer_doorframes_sheen" id="foyer-frame-satin" value="Satin" checked>
+<label class="sheen-label" for="foyer-frame-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="foyer_doorframes_sheen" id="foyer-frame-semi" value="Semi-Gloss">
+<label class="sheen-label" for="foyer-frame-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="foyer_doorframes_sheen" id="foyer-frame-gloss" value="Gloss">
+<label class="sheen-label" for="foyer-frame-gloss">Gloss</label>
+</div>
+</div>
+</div>
+
+<div class="room-section">
+<h2 class="room-title">Dining Room</h2>
+
+<div class="surface-group">
+<div class="surface-label">Ceiling</div>
+<input type="text" class="color-input" name="dining_ceiling_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="dining_ceiling_sheen" id="dining-ceil-flat" value="Flat" checked>
+<label class="sheen-label" for="dining-ceil-flat">Flat</label>
+<input type="radio" class="sheen-pill" name="dining_ceiling_sheen" id="dining-ceil-matte" value="Matte">
+<label class="sheen-label" for="dining-ceil-matte">Matte</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Walls</div>
+<input type="text" class="color-input" name="dining_walls_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="dining_walls_sheen" id="dining-walls-flat" value="Flat">
+<label class="sheen-label" for="dining-walls-flat">Flat</label>
+<input type="radio" class="sheen-pill" name="dining_walls_sheen" id="dining-walls-matte" value="Matte">
+<label class="sheen-label" for="dining-walls-matte">Matte</label>
+<input type="radio" class="sheen-pill" name="dining_walls_sheen" id="dining-walls-egg" value="Eggshell" checked>
+<label class="sheen-label" for="dining-walls-egg">Eggshell</label>
+<input type="radio" class="sheen-pill" name="dining_walls_sheen" id="dining-walls-satin" value="Satin">
+<label class="sheen-label" for="dining-walls-satin">Satin</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Baseboard</div>
+<input type="text" class="color-input" name="dining_baseboard_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="dining_baseboard_sheen" id="dining-base-satin" value="Satin" checked>
+<label class="sheen-label" for="dining-base-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="dining_baseboard_sheen" id="dining-base-semi" value="Semi-Gloss">
+<label class="sheen-label" for="dining-base-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="dining_baseboard_sheen" id="dining-base-gloss" value="Gloss">
+<label class="sheen-label" for="dining-base-gloss">Gloss</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Doors (2)</div>
+<input type="text" class="color-input" name="dining_doors_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="dining_doors_sheen" id="dining-door-satin" value="Satin" checked>
+<label class="sheen-label" for="dining-door-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="dining_doors_sheen" id="dining-door-semi" value="Semi-Gloss">
+<label class="sheen-label" for="dining-door-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="dining_doors_sheen" id="dining-door-gloss" value="Gloss">
+<label class="sheen-label" for="dining-door-gloss">Gloss</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Door Frames (2)</div>
+<input type="text" class="color-input" name="dining_doorframes_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="dining_doorframes_sheen" id="dining-frame-satin" value="Satin" checked>
+<label class="sheen-label" for="dining-frame-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="dining_doorframes_sheen" id="dining-frame-semi" value="Semi-Gloss">
+<label class="sheen-label" for="dining-frame-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="dining_doorframes_sheen" id="dining-frame-gloss" value="Gloss">
+<label class="sheen-label" for="dining-frame-gloss">Gloss</label>
+</div>
+</div>
+</div>
+
+<div class="room-section">
+<h2 class="room-title">Bedroom</h2>
+
+<div class="surface-group">
+<div class="surface-label">Ceiling</div>
+<input type="text" class="color-input" name="bedroom_ceiling_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="bedroom_ceiling_sheen" id="bedroom-ceil-flat" value="Flat" checked>
+<label class="sheen-label" for="bedroom-ceil-flat">Flat</label>
+<input type="radio" class="sheen-pill" name="bedroom_ceiling_sheen" id="bedroom-ceil-matte" value="Matte">
+<label class="sheen-label" for="bedroom-ceil-matte">Matte</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Walls</div>
+<input type="text" class="color-input" name="bedroom_walls_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="bedroom_walls_sheen" id="bedroom-walls-flat" value="Flat">
+<label class="sheen-label" for="bedroom-walls-flat">Flat</label>
+<input type="radio" class="sheen-pill" name="bedroom_walls_sheen" id="bedroom-walls-matte" value="Matte">
+<label class="sheen-label" for="bedroom-walls-matte">Matte</label>
+<input type="radio" class="sheen-pill" name="bedroom_walls_sheen" id="bedroom-walls-egg" value="Eggshell" checked>
+<label class="sheen-label" for="bedroom-walls-egg">Eggshell</label>
+<input type="radio" class="sheen-pill" name="bedroom_walls_sheen" id="bedroom-walls-satin" value="Satin">
+<label class="sheen-label" for="bedroom-walls-satin">Satin</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Baseboard</div>
+<input type="text" class="color-input" name="bedroom_baseboard_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="bedroom_baseboard_sheen" id="bedroom-base-satin" value="Satin" checked>
+<label class="sheen-label" for="bedroom-base-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="bedroom_baseboard_sheen" id="bedroom-base-semi" value="Semi-Gloss">
+<label class="sheen-label" for="bedroom-base-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="bedroom_baseboard_sheen" id="bedroom-base-gloss" value="Gloss">
+<label class="sheen-label" for="bedroom-base-gloss">Gloss</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Doors (2)</div>
+<input type="text" class="color-input" name="bedroom_doors_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="bedroom_doors_sheen" id="bedroom-door-satin" value="Satin" checked>
+<label class="sheen-label" for="bedroom-door-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="bedroom_doors_sheen" id="bedroom-door-semi" value="Semi-Gloss">
+<label class="sheen-label" for="bedroom-door-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="bedroom_doors_sheen" id="bedroom-door-gloss" value="Gloss">
+<label class="sheen-label" for="bedroom-door-gloss">Gloss</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Door Frames (2)</div>
+<input type="text" class="color-input" name="bedroom_doorframes_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="bedroom_doorframes_sheen" id="bedroom-frame-satin" value="Satin" checked>
+<label class="sheen-label" for="bedroom-frame-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="bedroom_doorframes_sheen" id="bedroom-frame-semi" value="Semi-Gloss">
+<label class="sheen-label" for="bedroom-frame-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="bedroom_doorframes_sheen" id="bedroom-frame-gloss" value="Gloss">
+<label class="sheen-label" for="bedroom-frame-gloss">Gloss</label>
+</div>
+</div>
+</div>
+
+<div class="room-section">
+<h2 class="room-title">Sunroom</h2>
+
+<div class="surface-group">
+<div class="surface-label">Ceiling</div>
+<input type="text" class="color-input" name="sunroom_ceiling_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="sunroom_ceiling_sheen" id="sunroom-ceil-flat" value="Flat" checked>
+<label class="sheen-label" for="sunroom-ceil-flat">Flat</label>
+<input type="radio" class="sheen-pill" name="sunroom_ceiling_sheen" id="sunroom-ceil-matte" value="Matte">
+<label class="sheen-label" for="sunroom-ceil-matte">Matte</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Walls</div>
+<input type="text" class="color-input" name="sunroom_walls_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="sunroom_walls_sheen" id="sunroom-walls-flat" value="Flat">
+<label class="sheen-label" for="sunroom-walls-flat">Flat</label>
+<input type="radio" class="sheen-pill" name="sunroom_walls_sheen" id="sunroom-walls-matte" value="Matte">
+<label class="sheen-label" for="sunroom-walls-matte">Matte</label>
+<input type="radio" class="sheen-pill" name="sunroom_walls_sheen" id="sunroom-walls-egg" value="Eggshell" checked>
+<label class="sheen-label" for="sunroom-walls-egg">Eggshell</label>
+<input type="radio" class="sheen-pill" name="sunroom_walls_sheen" id="sunroom-walls-satin" value="Satin">
+<label class="sheen-label" for="sunroom-walls-satin">Satin</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Baseboard</div>
+<input type="text" class="color-input" name="sunroom_baseboard_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="sunroom_baseboard_sheen" id="sunroom-base-satin" value="Satin" checked>
+<label class="sheen-label" for="sunroom-base-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="sunroom_baseboard_sheen" id="sunroom-base-semi" value="Semi-Gloss">
+<label class="sheen-label" for="sunroom-base-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="sunroom_baseboard_sheen" id="sunroom-base-gloss" value="Gloss">
+<label class="sheen-label" for="sunroom-base-gloss">Gloss</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Doors (2)</div>
+<input type="text" class="color-input" name="sunroom_doors_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="sunroom_doors_sheen" id="sunroom-door-satin" value="Satin" checked>
+<label class="sheen-label" for="sunroom-door-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="sunroom_doors_sheen" id="sunroom-door-semi" value="Semi-Gloss">
+<label class="sheen-label" for="sunroom-door-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="sunroom_doors_sheen" id="sunroom-door-gloss" value="Gloss">
+<label class="sheen-label" for="sunroom-door-gloss">Gloss</label>
+</div>
+</div>
+
+<div class="surface-group">
+<div class="surface-label">Door Frames (2)</div>
+<input type="text" class="color-input" name="sunroom_doorframes_color" placeholder="Color name or code">
+<div class="sheen-pills">
+<input type="radio" class="sheen-pill" name="sunroom_doorframes_sheen" id="sunroom-frame-satin" value="Satin" checked>
+<label class="sheen-label" for="sunroom-frame-satin">Satin</label>
+<input type="radio" class="sheen-pill" name="sunroom_doorframes_sheen" id="sunroom-frame-semi" value="Semi-Gloss">
+<label class="sheen-label" for="sunroom-frame-semi">Semi-Gloss</label>
+<input type="radio" class="sheen-pill" name="sunroom_doorframes_sheen" id="sunroom-frame-gloss" value="Gloss">
+<label class="sheen-label" for="sunroom-frame-gloss">Gloss</label>
+</div>
+</div>
+</div>
+
+<div class="notes-section">
+<label for="notes">Additional Notes</label>
+<textarea id="notes" name="notes" placeholder="Any special requests, color matching notes, or questions..."></textarea>
+</div>
+
+<button type="submit" class="submit-btn">Submit Color Selections</button>
+</form>
+
+<p class="footer">Precision Painting Plus South Florida<br>786.676.0451 • ido@precisionpaintingplus.com</p>
+</div>
+</body>
+</html>
