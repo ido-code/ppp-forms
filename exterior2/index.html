@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Selection Form - Precision Painting Plus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #172B4D;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 16px;
+  line-height: 1.4;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 20px 0;
+  border-bottom: 2px solid #37738C;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: #8DC442;
+  margin-bottom: 8px;
+}
+
+.header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #C4DDE4;
+  margin-bottom: 4px;
+}
+
+.header p {
+  font-size: 14px;
+  color: #C4DDE4;
+  opacity: 0.8;
+}
+
+.client-info {
+  background: #37738C;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.client-info span {
+  color: #C4DDE4;
+}
+
+.client-info strong {
+  color: #ffffff;
+}
+
+.whole-house-toggles {
+  background: linear-gradient(135deg, #37738C 0%, #172B4D 100%);
+  border: 1px solid #8DC442;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.whole-house-toggles h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: #8DC442;
+  margin-bottom: 12px;
+}
+
+.toggle-group {
+  margin-bottom: 12px;
+}
+
+.toggle-group:last-child {
+  margin-bottom: 0;
+}
+
+.toggle-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.toggle-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #8DC442;
+}
+
+.toggle-color-input {
+  flex: 1;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #C4DDE4;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.toggle-color-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.room-section {
+  background: rgba(55, 115, 140, 0.3);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-left: 4px solid #8DC442;
+}
+
+.room-header {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: #8DC442;
+  margin-bottom: 4px;
+}
+
+.room-dimensions {
+  font-size: 12px;
+  color: #C4DDE4;
+  margin-bottom: 14px;
+  opacity: 0.8;
+}
+
+.surface-group {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(196, 221, 228, 0.2);
+}
+
+.surface-group:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.surface-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #C4DDE4;
+  margin-bottom: 8px;
+}
+
+.color-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #C4DDE4;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.color-input::placeholder {
+  color: rgba(196, 221, 228, 0.6);
+}
+
+.color-input:focus {
+  outline: none;
+  border-color: #8DC442;
+  background: rgba(141, 196, 66, 0.1);
+}
+
+.sheen-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sheen-pill {
+  padding: 6px 12px;
+  border: 1px solid #C4DDE4;
+  border-radius: 20px;
+  background: transparent;
+  color: #C4DDE4;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sheen-pill:hover {
+  background: rgba(196, 221, 228, 0.2);
+}
+
+.sheen-pill.active {
+  background: #8DC442;
+  border-color: #8DC442;
+  color: #172B4D;
+  font-weight: 500;
+}
+
+.notes-section {
+  background: rgba(55, 115, 140, 0.3);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.notes-section h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: #8DC442;
+  margin-bottom: 10px;
+}
+
+.notes-textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+  border: 1px solid #C4DDE4;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.notes-textarea::placeholder {
+  color: rgba(196, 221, 228, 0.6);
+}
+
+.notes-textarea:focus {
+  outline: none;
+  border-color: #8DC442;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 50px;
+  background: #8DC442;
+  border: none;
+  border-radius: 8px;
+  color: #172B4D;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  background: #7ab339;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.thank-you {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.thank-you.show {
+  display: block;
+}
+
+.thank-you h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  color: #8DC442;
+  margin-bottom: 16px;
+}
+
+.thank-you p {
+  font-size: 16px;
+  color: #C4DDE4;
+  line-height: 1.6;
+}
+
+.form-container.hidden {
+  display: none;
+}
+
+.prep-note {
+  font-size: 11px;
+  color: #C4DDE4;
+  opacity: 0.7;
+  font-style: italic;
+  margin-top: 4px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="logo">Precision Painting Plus</div>
+    <h1>Exterior Color Selection</h1>
+    <p>South Florida</p>
+  </div>
+
+  <div class="form-container" id="formContainer">
+    <div class="client-info">
+      <span>Client: <strong>Ido exterior2</strong></span>
+      <span>Estimate: <strong>#222</strong></span>
+    </div>
+
+    <div class="whole-house-toggles">
+      <h3>Whole House Defaults</h3>
+      <div class="toggle-group">
+        <label>
+          <input type="checkbox" id="wholeHouseSiding" onchange="toggleWholeHouse('siding')">
+          <span>Same color all siding:</span>
+          <input type="text" class="toggle-color-input" id="wholeHouseSidingColor" placeholder="Color name or code" disabled>
+        </label>
+      </div>
+      <div class="toggle-group">
+        <label>
+          <input type="checkbox" id="wholeHouseTrim" onchange="toggleWholeHouse('trim')">
+          <span>Same color all trim:</span>
+          <input type="text" class="toggle-color-input" id="wholeHouseTrimColor" placeholder="Color name or code" disabled>
+        </label>
+      </div>
+    </div>
+
+    <div class="room-section">
+      <div class="room-header">Whole House Exterior</div>
+      <div class="room-dimensions">200' x 22' — 4,400 sqft stucco | 2-story</div>
+
+      <div class="surface-group">
+        <div class="surface-name">Stucco Siding</div>
+        <input type="text" class="color-input siding-color" name="stucco_siding_color" placeholder="Color name or code (e.g., SW 7015 Repose Gray)">
+        <div class="sheen-pills" data-surface="stucco_siding_sheen">
+          <button type="button" class="sheen-pill" data-sheen="Flat">Flat</button>
+          <button type="button" class="sheen-pill active" data-sheen="Satin">Satin</button>
+          <button type="button" class="sheen-pill" data-sheen="Low Lustre">Low Lustre</button>
+        </div>
+        <div class="prep-note">Medium prep: crack/hole fill, caulk around windows, 2 coats</div>
+      </div>
+
+      <div class="surface-group">
+        <div class="surface-name">Drip Edge, Fascia & Gutters</div>
+        <input type="text" class="color-input trim-color" name="fascia_gutters_color" placeholder="Color name or code">
+        <div class="sheen-pills" data-surface="fascia_gutters_sheen">
+          <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
+          <button type="button" class="sheen-pill active" data-sheen="Semi-Gloss">Semi-Gloss</button>
+          <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+        </div>
+        <div class="prep-note">200 linear feet — 2nd story — 2 coats</div>
+      </div>
+
+      <div class="surface-group">
+        <div class="surface-name">Garage Door & Frame</div>
+        <input type="text" class="color-input trim-color" name="garage_door_color" placeholder="Color name or code">
+        <div class="sheen-pills" data-surface="garage_door_sheen">
+          <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
+          <button type="button" class="sheen-pill active" data-sheen="Semi-Gloss">Semi-Gloss</button>
+          <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+        </div>
+        <div class="prep-note">Premium exterior paint</div>
+      </div>
+
+      <div class="surface-group">
+        <div class="surface-name">Impact Doors (2)</div>
+        <input type="text" class="color-input trim-color" name="impact_doors_color" placeholder="Color name or code">
+        <div class="sheen-pills" data-surface="impact_doors_sheen">
+          <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
+          <button type="button" class="sheen-pill active" data-sheen="Semi-Gloss">Semi-Gloss</button>
+          <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+        </div>
+        <div class="prep-note">Prep, prime and paint — premium exterior paint</div>
+      </div>
+    </div>
+
+    <div class="room-section">
+      <div class="room-header">Fence</div>
+      <div class="room-dimensions">100' x 5' — 500 sqft wood</div>
+
+      <div class="surface-group">
+        <div class="surface-name">Wood Fence</div>
+        <input type="text" class="color-input" name="fence_color" placeholder="Stain color name or code">
+        <div class="sheen-pills" data-surface="fence_sheen">
+          <button type="button" class="sheen-pill active" data-sheen="Semi-Transparent">Semi-Transparent</button>
+          <button type="button" class="sheen-pill" data-sheen="Semi-Solid">Semi-Solid</button>
+          <button type="button" class="sheen-pill" data-sheen="Solid">Solid</button>
+        </div>
+        <div class="prep-note">Full surface prep + stain 2 coats — flat board fence</div>
+      </div>
+    </div>
+
+    <div class="notes-section">
+      <h3>Additional Notes</h3>
+      <textarea class="notes-textarea" name="notes" placeholder="Any special requests, color matching needs, or questions..."></textarea>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="submitForm()">Submit Color Selections</button>
+  </div>
+
+  <div class="thank-you" id="thankYou">
+    <h2>Thank You!</h2>
+    <p>Your color selections have been submitted successfully. Our team will review your choices and be in touch shortly to confirm details before we begin your project.</p>
+  </div>
+</div>
+
+<script>
+function toggleWholeHouse(type) {
+  const checkbox = document.getElementById(type === 'siding' ? 'wholeHouseSiding' : 'wholeHouseTrim');
+  const colorInput = document.getElementById(type === 'siding' ? 'wholeHouseSidingColor' : 'wholeHouseTrimColor');
+  const targetInputs = document.querySelectorAll(type === 'siding' ? '.siding-color' : '.trim-color');
+  
+  colorInput.disabled = !checkbox.checked;
+  
+  if (checkbox.checked) {
+    colorInput.focus();
+    colorInput.addEventListener('input', function() {
+      targetInputs.forEach(input => {
+        input.value = this.value;
+      });
+    });
+  }
+}
+
+document.querySelectorAll('.sheen-pills').forEach(pillGroup => {
+  pillGroup.querySelectorAll('.sheen-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      this.parentElement.querySelectorAll('.sheen-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+
+async function submitForm() {
+  const formData = {
+    client_name: 'Ido exterior2',
+    estimate_number: '222',
+    submission_date: new Date().toISOString(),
+    whole_house_siding_same: document.getElementById('wholeHouseSiding').checked,
+    whole_house_siding_color: document.getElementById('wholeHouseSidingColor').value,
+    whole_house_trim_same: document.getElementById('wholeHouseTrim').checked,
+    whole_house_trim_color: document.getElementById('wholeHouseTrimColor').value,
+    stucco_siding_color: document.querySelector('[name="stucco_siding_color"]').value,
+    stucco_siding_sheen: document.querySelector('[data-surface="stucco_siding_sheen"] .active')?.dataset.sheen || '',
+    fascia_gutters_color: document.querySelector('[name="fascia_gutters_color"]').value,
+    fascia_gutters_sheen: document.querySelector('[data-surface="fascia_gutters_sheen"] .active')?.dataset.sheen || '',
+    garage_door_color: document.querySelector('[name="garage_door_color"]').value,
+    garage_door_sheen: document.querySelector('[data-surface="garage_door_sheen"] .active')?.dataset.sheen || '',
+    impact_doors_color: document.querySelector('[name="impact_doors_color"]').value,
+    impact_doors_sheen: document.querySelector('[data-surface="impact_doors_sheen"] .active')?.dataset.sheen || '',
+    fence_color: document.querySelector('[name="fence_color"]').value,
+    fence_sheen: document.querySelector('[data-surface="fence_sheen"] .active')?.dataset.sheen || '',
+    notes: document.querySelector('[name="notes"]').value
+  };
+
+  try {
+    const response = await fetch('https://hook.us2.make.com/xy5wmrt7im9ajfpi416ilogavr4982wn', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    document.getElementById('formContainer').classList.add('hidden');
+    document.getElementById('thankYou').classList.add('show');
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    document.getElementById('formContainer').classList.add('hidden');
+    document.getElementById('thankYou').classList.add('show');
+  }
+}
+</script>
+</body>
+</html>
