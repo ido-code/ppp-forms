@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Selection — Ido Exterior | Precision Painting Plus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #172B4D;
+            color: #fff;
+            min-height: 100vh;
+            padding: 16px;
+            line-height: 1.4;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #37738C;
+        }
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem;
+            color: #8DC442;
+            margin-bottom: 4px;
+        }
+        .subtitle {
+            color: #C4DDE4;
+            font-size: 0.875rem;
+        }
+        .estimate-info {
+            background: #37738C;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        .global-toggles {
+            background: rgba(55, 115, 140, 0.3);
+            border: 1px solid #37738C;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+        .toggle-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #8DC442;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .toggle-group {
+            margin-bottom: 10px;
+        }
+        .toggle-group:last-child {
+            margin-bottom: 0;
+        }
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .toggle-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #8DC442;
+        }
+        .global-color-input {
+            margin-top: 8px;
+            display: none;
+        }
+        .global-color-input.active {
+            display: block;
+        }
+        .section {
+            background: rgba(196, 221, 228, 0.08);
+            border: 1px solid #37738C;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+        .section-header {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: #8DC442;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(141, 196, 66, 0.3);
+        }
+        .surface-group {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(55, 115, 140, 0.4);
+        }
+        .surface-group:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .surface-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #C4DDE4;
+            margin-bottom: 6px;
+        }
+        .input-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .color-input {
+            flex: 1;
+            min-width: 120px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #37738C;
+            border-radius: 6px;
+            padding: 0 12px;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.875rem;
+        }
+        .color-input::placeholder {
+            color: rgba(196, 221, 228, 0.5);
+        }
+        .color-input:focus {
+            outline: none;
+            border-color: #8DC442;
+            background: rgba(141, 196, 66, 0.1);
+        }
+        .sheen-pills {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .sheen-pill {
+            display: none;
+        }
+        .sheen-label {
+            padding: 8px 12px;
+            background: rgba(55, 115, 140, 0.4);
+            border: 1px solid #37738C;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .sheen-pill:checked + .sheen-label {
+            background: #8DC442;
+            border-color: #8DC442;
+            color: #172B4D;
+            font-weight: 700;
+        }
+        .sheen-label:hover {
+            background: rgba(141, 196, 66, 0.3);
+        }
+        .notes-section {
+            margin-top: 20px;
+        }
+        .notes-label {
+            font-size: 0.85rem;
+            color: #C4DDE4;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .notes-textarea {
+            width: 100%;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #37738C;
+            border-radius: 6px;
+            padding: 10px 12px;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.875rem;
+            resize: vertical;
+        }
+        .notes-textarea:focus {
+            outline: none;
+            border-color: #8DC442;
+        }
+        .submit-btn {
+            width: 100%;
+            height: 48px;
+            background: #8DC442;
+            border: none;
+            border-radius: 8px;
+            color: #172B4D;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover {
+            background: #7ab838;
+            transform: translateY(-1px);
+        }
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #37738C;
+            font-size: 0.75rem;
+            color: #C4DDE4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Color Selection</h1>
+            <p class="subtitle">Precision Painting Plus South Florida</p>
+            <div class="estimate-info">Estimate #123 — Ido Exterior</div>
+        </header>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="cbd1d5e9-120e-4be3-9748-b11c9c33324f">
+            <input type="hidden" name="subject" value="Color Selections — Ido exterior">
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+            <input type="hidden" name="client_name" value="Ido exterior">
+            <input type="hidden" name="estimate_number" value="123">
+
+            <div class="global-toggles">
+                <div class="toggle-title">Quick Fill Options</div>
+                <div class="toggle-group">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="sameBodyColor" onchange="toggleGlobalInput('body')">
+                        Same color for all body/siding surfaces
+                    </label>
+                    <div class="global-color-input" id="globalBodyInput">
+                        <input type="text" class="color-input" id="globalBodyColor" placeholder="Enter body color..." oninput="applyGlobalColor('body')">
+                    </div>
+                </div>
+                <div class="toggle-group">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="sameTrimColor" onchange="toggleGlobalInput('trim')">
+                        Same color for all trim/doors
+                    </label>
+                    <div class="global-color-input" id="globalTrimInput">
+                        <input type="text" class="color-input" id="globalTrimColor" placeholder="Enter trim color..." oninput="applyGlobalColor('trim')">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Whole House Exterior Section -->
+            <div class="section">
+                <div class="section-header">Whole House Exterior</div>
+                
+                <div class="surface-group">
+                    <div class="surface-name">Stucco Siding (4,400 sqft)</div>
+                    <div class="input-row">
+                        <input type="text" class="color-input body-surface" name="stucco_siding_color" placeholder="Color name or code">
+                        <div class="sheen-pills">
+                            <input type="radio" class="sheen-pill" name="stucco_siding_sheen" id="stucco_flat" value="Flat">
+                            <label class="sheen-label" for="stucco_flat">Flat</label>
+                            <input type="radio" class="sheen-pill" name="stucco_siding_sheen" id="stucco_matte" value="Matte">
+                            <label class="sheen-label" for="stucco_matte">Matte</label>
+                            <input type="radio" class="sheen-pill" name="stucco_siding_sheen" id="stucco_satin" value="Satin" checked>
+                            <label class="sheen-label" for="stucco_satin">Satin</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="surface-group">
+                    <div class="surface-name">Drip Edge Fascia & Gutters (200 lnft)</div>
+                    <div class="input-row">
+                        <input type="text" class="color-input trim-surface" name="fascia_gutters_color" placeholder="Color name or code">
+                        <div class="sheen-pills">
+                            <input type="radio" class="sheen-pill" name="fascia_gutters_sheen" id="fascia_satin" value="Satin" checked>
+                            <label class="sheen-label" for="fascia_satin">Satin</label>
+                            <input type="radio" class="sheen-pill" name="fascia_gutters_sheen" id="fascia_semi" value="Semi-Gloss">
+                            <label class="sheen-label" for="fascia_semi">Semi-Gloss</label>
+                            <input type="radio" class="sheen-pill" name="fascia_gutters_sheen" id="fascia_gloss" value="Gloss">
+                            <label class="sheen-label" for="fascia_gloss">Gloss</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garage Door Section -->
+            <div class="section">
+                <div class="section-header">Garage Door & Frame</div>
+                
+                <div class="surface-group">
+                    <div class="surface-name">Garage Door (1)</div>
+                    <div class="input-row">
+                        <input type="text" class="color-input trim-surface" name="garage_door_color" placeholder="Color name or code">
+                        <div class="sheen-pills">
+                            <input type="radio" class="sheen-pill" name="garage_door_sheen" id="garage_satin" value="Satin" checked>
+                            <label class="sheen-label" for="garage_satin">Satin</label>
+                            <input type="radio" class="sheen-pill" name="garage_door_sheen" id="garage_semi" value="Semi-Gloss">
+                            <label class="sheen-label" for="garage_semi">Semi-Gloss</label>
+                            <input type="radio" class="sheen-pill" name="garage_door_sheen" id="garage_gloss" value="Gloss">
+                            <label class="sheen-label" for="garage_gloss">Gloss</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Doors Section -->
+            <div class="section">
+                <div class="section-header">Impact Doors</div>
+                
+                <div class="surface-group">
+                    <div class="surface-name">Impact Door 1</div>
+                    <div class="input-row">
+                        <input type="text" class="color-input trim-surface" name="impact_door_1_color" placeholder="Color name or code">
+                        <div class="sheen-pills">
+                            <input type="radio" class="sheen-pill" name="impact_door_1_sheen" id="impact1_satin" value="Satin" checked>
+                            <label class="sheen-label" for="impact1_satin">Satin</label>
+                            <input type="radio" class="sheen-pill" name="impact_door_1_sheen" id="impact1_semi" value="Semi-Gloss">
+                            <label class="sheen-label" for="impact1_semi">Semi-Gloss</label>
+                            <input type="radio" class="sheen-pill" name="impact_door_1_sheen" id="impact1_gloss" value="Gloss">
+                            <label class="sheen-label" for="impact1_gloss">Gloss</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="surface-group">
+                    <div class="surface-name">Impact Door 2</div>
+                    <div class="input-row">
+                        <input type="text" class="color-input trim-surface" name="impact_door_2_color" placeholder="Color name or code">
+                        <div class="sheen-pills">
+                            <input type="radio" class="sheen-pill" name="impact_door_2_sheen" id="impact2_satin" value="Satin" checked>
+                            <label class="sheen-label" for="impact2_satin">Satin</label>
+                            <input type="radio" class="sheen-pill" name="impact_door_2_sheen" id="impact2_semi" value="Semi-Gloss">
+                            <label class="sheen-label" for="impact2_semi">Semi-Gloss</label>
+                            <input type="radio" class="sheen-pill" name="impact_door_2_sheen" id="impact2_gloss" value="Gloss">
+                            <label class="sheen-label" for="impact2_gloss">Gloss</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fence Section -->
+            <div class="section">
+                <div class="section-header">Fence (100' x 5' — 500 sqft)</div>
+                
+                <div class="surface-group">
+                    <div class="surface-name">Fence Boards — Semi-Transparent Stain</div>
+                    <div class="input-row">
+                        <input type="text" class="color-input" name="fence_stain_color" placeholder="Stain color name or code">
+                        <div class="sheen-pills">
+                            <input type="radio" class="sheen-pill" name="fence_stain_sheen" id="fence_semi_trans" value="Semi-Transparent" checked>
+                            <label class="sheen-label" for="fence_semi_trans">Semi-Trans</label>
+                            <input type="radio" class="sheen-pill" name="fence_stain_sheen" id="fence_solid" value="Solid">
+                            <label class="sheen-label" for="fence_solid">Solid</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <label class="notes-label" for="notes">Additional Notes or Special Requests</label>
+                <textarea class="notes-textarea" name="notes" id="notes" placeholder="Any specific color combinations, accents, or preferences..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Color Selections</button>
+        </form>
+
+        <footer class="footer">
+            Precision Painting Plus South Florida<br>
+            1 Alhambra Plaza Suite PH, Coral Gables, FL 33134<br>
+            786.676.0451
+        </footer>
+    </div>
+
+    <script>
+        function toggleGlobalInput(type) {
+            const checkbox = document.getElementById(type === 'body' ? 'sameBodyColor' : 'sameTrimColor');
+            const inputDiv = document.getElementById(type === 'body' ? 'globalBodyInput' : 'globalTrimInput');
+            
+            if (checkbox.checked) {
+                inputDiv.classList.add('active');
+            } else {
+                inputDiv.classList.remove('active');
+            }
+        }
+
+        function applyGlobalColor(type) {
+            const globalInput = document.getElementById(type === 'body' ? 'globalBodyColor' : 'globalTrimColor');
+            const targetClass = type === 'body' ? 'body-surface' : 'trim-surface';
+            const surfaces = document.querySelectorAll('.' + targetClass);
+            
+            surfaces.forEach(function(surface) {
+                surface.value = globalInput.value;
+            });
+        }
+    </script>
+</body>
+</html>
