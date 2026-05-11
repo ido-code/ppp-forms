@@ -18,7 +18,8 @@
             background-color: #172B4D;
             color: #ffffff;
             min-height: 100vh;
-            padding: 20px 16px;
+            padding: 20px;
+            line-height: 1.4;
         }
         .container {
             max-width: 600px;
@@ -30,38 +31,33 @@
             padding-bottom: 20px;
             border-bottom: 2px solid #37738C;
         }
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: #8DC442;
+            margin-bottom: 4px;
+        }
         .header h1 {
             font-family: 'DM Serif Display', serif;
             font-size: 28px;
-            color: #8DC442;
+            font-weight: 400;
             margin-bottom: 4px;
         }
         .header p {
             color: #C4DDE4;
             font-size: 14px;
         }
-        .client-info {
-            background: #37738C;
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-        .client-info span {
-            color: #C4DDE4;
-        }
         .global-toggles {
-            background: rgba(55, 115, 140, 0.3);
-            padding: 16px;
+            background: #37738C;
             border-radius: 8px;
+            padding: 16px;
             margin-bottom: 20px;
         }
         .global-toggles h3 {
             font-size: 14px;
-            color: #8DC442;
+            font-weight: 500;
             margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #C4DDE4;
         }
         .toggle-group {
             margin-bottom: 12px;
@@ -81,24 +77,23 @@
             height: 18px;
             accent-color: #8DC442;
         }
-        .whole-house-input {
+        .global-color-input {
             margin-top: 8px;
             display: none;
         }
-        .whole-house-input.visible {
+        .global-color-input.active {
             display: block;
         }
         .room-section {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(55, 115, 140, 0.3);
             border-radius: 8px;
             padding: 16px;
             margin-bottom: 16px;
-            border-left: 3px solid #8DC442;
+            border-left: 4px solid #8DC442;
         }
         .room-title {
             font-family: 'DM Serif Display', serif;
             font-size: 20px;
-            color: #8DC442;
             margin-bottom: 4px;
         }
         .room-dimensions {
@@ -108,42 +103,35 @@
         }
         .surface-group {
             margin-bottom: 14px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid rgba(196, 221, 228, 0.2);
         }
         .surface-group:last-child {
             margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
         }
         .surface-label {
             font-size: 13px;
             font-weight: 500;
             color: #C4DDE4;
             margin-bottom: 6px;
+            display: block;
         }
         .color-input {
             width: 100%;
             height: 40px;
             padding: 0 12px;
-            border: 1px solid #37738C;
+            border: 2px solid #37738C;
             border-radius: 6px;
-            background: rgba(255, 255, 255, 0.1);
+            background: #172B4D;
             color: #ffffff;
             font-family: 'DM Sans', sans-serif;
             font-size: 14px;
             margin-bottom: 8px;
         }
-        .color-input::placeholder {
-            color: rgba(196, 221, 228, 0.5);
-        }
         .color-input:focus {
             outline: none;
             border-color: #8DC442;
         }
-        .color-input:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        .color-input::placeholder {
+            color: #6B8A99;
         }
         .sheen-pills {
             display: flex;
@@ -152,7 +140,7 @@
         }
         .sheen-pill {
             padding: 6px 12px;
-            border: 1px solid #37738C;
+            border: 2px solid #37738C;
             border-radius: 20px;
             background: transparent;
             color: #C4DDE4;
@@ -170,12 +158,8 @@
             color: #172B4D;
             font-weight: 500;
         }
-        .sheen-pill:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
         .notes-section {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(55, 115, 140, 0.3);
             border-radius: 8px;
             padding: 16px;
             margin-bottom: 20px;
@@ -183,27 +167,26 @@
         .notes-section h3 {
             font-family: 'DM Serif Display', serif;
             font-size: 18px;
-            color: #8DC442;
             margin-bottom: 10px;
         }
         .notes-textarea {
             width: 100%;
-            min-height: 100px;
+            height: 100px;
             padding: 12px;
-            border: 1px solid #37738C;
+            border: 2px solid #37738C;
             border-radius: 6px;
-            background: rgba(255, 255, 255, 0.1);
+            background: #172B4D;
             color: #ffffff;
             font-family: 'DM Sans', sans-serif;
             font-size: 14px;
             resize: vertical;
         }
-        .notes-textarea::placeholder {
-            color: rgba(196, 221, 228, 0.5);
-        }
         .notes-textarea:focus {
             outline: none;
             border-color: #8DC442;
+        }
+        .notes-textarea::placeholder {
+            color: #6B8A99;
         }
         .submit-btn {
             width: 100%;
@@ -222,7 +205,7 @@
             background: #7ab438;
         }
         .submit-btn:disabled {
-            opacity: 0.6;
+            background: #5a8a2e;
             cursor: not-allowed;
         }
         .thank-you {
@@ -230,7 +213,7 @@
             text-align: center;
             padding: 60px 20px;
         }
-        .thank-you.visible {
+        .thank-you.active {
             display: block;
         }
         .thank-you h2 {
@@ -243,366 +226,450 @@
             color: #C4DDE4;
             font-size: 16px;
         }
+        .form-content {
+            display: block;
+        }
         .form-content.hidden {
             display: none;
+        }
+        .whole-house-indicator {
+            display: none;
+            font-size: 11px;
+            color: #8DC442;
+            margin-bottom: 6px;
+            font-style: italic;
+        }
+        .whole-house-indicator.active {
+            display: block;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Precision Painting Plus</h1>
-            <p>Color Selection Form</p>
+            <div class="logo">Precision Painting Plus</div>
+            <h1>Color Selection Form</h1>
+            <p>Matt Gilbert • 3919 Granada Blvd</p>
         </div>
-        
+
+        <div class="thank-you" id="thankYou">
+            <h2>Thank You!</h2>
+            <p>Your color selections have been submitted successfully. Our team will be in touch soon to confirm your choices.</p>
+        </div>
+
         <div class="form-content" id="formContent">
-            <div class="client-info">
-                <span>Client:</span> Matt Gilbert<br>
-                <span>Estimate:</span> #150 | <span>Address:</span> 3919 Granada Blvd, Coral Gables
-            </div>
-            
-            <input type="hidden" id="client_name" value="Matt Gilbert">
-            <input type="hidden" id="estimate_number" value="150">
-            
             <div class="global-toggles">
-                <h3>Whole-House Options</h3>
+                <h3>Whole-House Color Options</h3>
                 <div class="toggle-group">
                     <label class="toggle-label">
                         <input type="checkbox" class="toggle-checkbox" id="wholeHouseWalls" onchange="toggleWholeHouse('walls')">
-                        Use same color for all walls
+                        Use same wall color for all rooms
                     </label>
-                    <div class="whole-house-input" id="wholeHouseWallsInput">
+                    <div class="global-color-input" id="globalWallsInput">
                         <input type="text" class="color-input" id="globalWallColor" placeholder="Enter wall color (e.g., BM Simply White OC-117)">
-                        <div class="sheen-pills" id="globalWallSheen">
-                            <button type="button" class="sheen-pill" data-sheen="Flat">Flat</button>
-                            <button type="button" class="sheen-pill" data-sheen="Matte">Matte</button>
-                            <button type="button" class="sheen-pill" data-sheen="Eggshell">Eggshell</button>
-                            <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
+                        <div class="sheen-pills">
+                            <button type="button" class="sheen-pill" onclick="selectGlobalSheen('walls', this, 'Flat')">Flat</button>
+                            <button type="button" class="sheen-pill" onclick="selectGlobalSheen('walls', this, 'Matte')">Matte</button>
+                            <button type="button" class="sheen-pill" onclick="selectGlobalSheen('walls', this, 'Eggshell')">Eggshell</button>
+                            <button type="button" class="sheen-pill" onclick="selectGlobalSheen('walls', this, 'Satin')">Satin</button>
                         </div>
                     </div>
                 </div>
                 <div class="toggle-group">
                     <label class="toggle-label">
                         <input type="checkbox" class="toggle-checkbox" id="wholeHouseTrim" onchange="toggleWholeHouse('trim')">
-                        Use same color for all trim/doors
+                        Use same trim color for all rooms
                     </label>
-                    <div class="whole-house-input" id="wholeHouseTrimInput">
+                    <div class="global-color-input" id="globalTrimInput">
                         <input type="text" class="color-input" id="globalTrimColor" placeholder="Enter trim color (e.g., BM Chantilly Lace OC-65)">
-                        <div class="sheen-pills" id="globalTrimSheen">
-                            <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                            <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                            <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+                        <div class="sheen-pills">
+                            <button type="button" class="sheen-pill" onclick="selectGlobalSheen('trim', this, 'Satin')">Satin</button>
+                            <button type="button" class="sheen-pill" onclick="selectGlobalSheen('trim', this, 'Semi-Gloss')">Semi-Gloss</button>
+                            <button type="button" class="sheen-pill" onclick="selectGlobalSheen('trim', this, 'Gloss')">Gloss</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Primary Bedroom -->
+
             <div class="room-section">
                 <h2 class="room-title">Primary Bedroom</h2>
-                <p class="room-dimensions">14.3' x 17.9' x 8.5'</p>
-                
+                <div class="room-dimensions">14.3' x 17.9' x 8.5'</div>
+
                 <div class="surface-group">
-                    <div class="surface-label">Ceiling</div>
-                    <input type="text" class="color-input" id="primary_ceiling_color" placeholder="Enter ceiling color">
-                    <div class="sheen-pills" data-surface="primary_ceiling">
-                        <button type="button" class="sheen-pill" data-sheen="Flat">Flat</button>
-                        <button type="button" class="sheen-pill" data-sheen="Matte">Matte</button>
+                    <label class="surface-label">Ceiling</label>
+                    <input type="text" class="color-input" name="primary_bedroom_ceiling_color" placeholder="Enter ceiling color">
+                    <div class="sheen-pills">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_ceiling_sheen')">Flat</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_ceiling_sheen')">Matte</button>
                     </div>
+                    <input type="hidden" name="primary_bedroom_ceiling_sheen" value="">
                 </div>
-                
-                <div class="surface-group wall-surface">
-                    <div class="surface-label">Walls</div>
-                    <input type="text" class="color-input wall-color" id="primary_walls_color" placeholder="Enter wall color">
-                    <div class="sheen-pills wall-sheen" data-surface="primary_walls">
-                        <button type="button" class="sheen-pill" data-sheen="Flat">Flat</button>
-                        <button type="button" class="sheen-pill" data-sheen="Matte">Matte</button>
-                        <button type="button" class="sheen-pill" data-sheen="Eggshell">Eggshell</button>
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
+
+                <div class="surface-group walls-group">
+                    <label class="surface-label">Walls</label>
+                    <div class="whole-house-indicator" data-type="walls">Using whole-house wall color</div>
+                    <input type="text" class="color-input walls-color" name="primary_bedroom_walls_color" placeholder="Enter wall color">
+                    <div class="sheen-pills walls-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_walls_sheen')">Flat</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_walls_sheen')">Matte</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_walls_sheen')">Eggshell</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_walls_sheen')">Satin</button>
                     </div>
+                    <input type="hidden" name="primary_bedroom_walls_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Baseboards</div>
-                    <input type="text" class="color-input trim-color" id="primary_baseboards_color" placeholder="Enter baseboard color">
-                    <div class="sheen-pills trim-sheen" data-surface="primary_baseboards">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Baseboards</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="primary_bedroom_baseboards_color" placeholder="Enter baseboard color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_baseboards_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_baseboards_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_baseboards_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="primary_bedroom_baseboards_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Doors (4)</div>
-                    <input type="text" class="color-input trim-color" id="primary_doors_color" placeholder="Enter door color">
-                    <div class="sheen-pills trim-sheen" data-surface="primary_doors">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Doors (4)</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="primary_bedroom_doors_color" placeholder="Enter door color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_doors_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_doors_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_doors_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="primary_bedroom_doors_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Door Frames (4)</div>
-                    <input type="text" class="color-input trim-color" id="primary_doorframes_color" placeholder="Enter door frame color">
-                    <div class="sheen-pills trim-sheen" data-surface="primary_doorframes">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Door Frames (4)</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="primary_bedroom_door_frames_color" placeholder="Enter door frame color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_door_frames_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_door_frames_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'primary_bedroom_door_frames_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="primary_bedroom_door_frames_sheen" value="">
                 </div>
             </div>
-            
-            <!-- Kids Bedroom -->
+
             <div class="room-section">
                 <h2 class="room-title">Kids Bedroom</h2>
-                <p class="room-dimensions">13.7' x 11.9' x 8.5'</p>
-                
+                <div class="room-dimensions">13.7' x 11.9' x 8.5'</div>
+
                 <div class="surface-group">
-                    <div class="surface-label">Ceiling</div>
-                    <input type="text" class="color-input" id="kids_ceiling_color" placeholder="Enter ceiling color">
-                    <div class="sheen-pills" data-surface="kids_ceiling">
-                        <button type="button" class="sheen-pill" data-sheen="Flat">Flat</button>
-                        <button type="button" class="sheen-pill" data-sheen="Matte">Matte</button>
+                    <label class="surface-label">Ceiling</label>
+                    <input type="text" class="color-input" name="kids_bedroom_ceiling_color" placeholder="Enter ceiling color">
+                    <div class="sheen-pills">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_ceiling_sheen')">Flat</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_ceiling_sheen')">Matte</button>
                     </div>
+                    <input type="hidden" name="kids_bedroom_ceiling_sheen" value="">
                 </div>
-                
-                <div class="surface-group wall-surface">
-                    <div class="surface-label">Walls</div>
-                    <input type="text" class="color-input wall-color" id="kids_walls_color" placeholder="Enter wall color">
-                    <div class="sheen-pills wall-sheen" data-surface="kids_walls">
-                        <button type="button" class="sheen-pill" data-sheen="Flat">Flat</button>
-                        <button type="button" class="sheen-pill" data-sheen="Matte">Matte</button>
-                        <button type="button" class="sheen-pill" data-sheen="Eggshell">Eggshell</button>
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
+
+                <div class="surface-group walls-group">
+                    <label class="surface-label">Walls</label>
+                    <div class="whole-house-indicator" data-type="walls">Using whole-house wall color</div>
+                    <input type="text" class="color-input walls-color" name="kids_bedroom_walls_color" placeholder="Enter wall color">
+                    <div class="sheen-pills walls-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_walls_sheen')">Flat</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_walls_sheen')">Matte</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_walls_sheen')">Eggshell</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_walls_sheen')">Satin</button>
                     </div>
+                    <input type="hidden" name="kids_bedroom_walls_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Baseboards</div>
-                    <input type="text" class="color-input trim-color" id="kids_baseboards_color" placeholder="Enter baseboard color">
-                    <div class="sheen-pills trim-sheen" data-surface="kids_baseboards">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Baseboards</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="kids_bedroom_baseboards_color" placeholder="Enter baseboard color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_baseboards_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_baseboards_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_baseboards_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="kids_bedroom_baseboards_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Doors (2)</div>
-                    <input type="text" class="color-input trim-color" id="kids_doors_color" placeholder="Enter door color">
-                    <div class="sheen-pills trim-sheen" data-surface="kids_doors">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Doors (2)</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="kids_bedroom_doors_color" placeholder="Enter door color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_doors_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_doors_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_doors_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="kids_bedroom_doors_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Door Frames (2)</div>
-                    <input type="text" class="color-input trim-color" id="kids_doorframes_color" placeholder="Enter door frame color">
-                    <div class="sheen-pills trim-sheen" data-surface="kids_doorframes">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Door Frames (2)</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="kids_bedroom_door_frames_color" placeholder="Enter door frame color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_door_frames_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_door_frames_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'kids_bedroom_door_frames_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="kids_bedroom_door_frames_sheen" value="">
                 </div>
             </div>
-            
-            <!-- Downstairs Bedroom -->
+
             <div class="room-section">
                 <h2 class="room-title">Downstairs Bedroom</h2>
-                <p class="room-dimensions">9' x 13' x 10'</p>
-                
+                <div class="room-dimensions">9' x 13' x 10'</div>
+
                 <div class="surface-group">
-                    <div class="surface-label">Ceiling</div>
-                    <input type="text" class="color-input" id="downstairs_ceiling_color" placeholder="Enter ceiling color">
-                    <div class="sheen-pills" data-surface="downstairs_ceiling">
-                        <button type="button" class="sheen-pill" data-sheen="Flat">Flat</button>
-                        <button type="button" class="sheen-pill" data-sheen="Matte">Matte</button>
+                    <label class="surface-label">Ceiling</label>
+                    <input type="text" class="color-input" name="downstairs_bedroom_ceiling_color" placeholder="Enter ceiling color">
+                    <div class="sheen-pills">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_ceiling_sheen')">Flat</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_ceiling_sheen')">Matte</button>
                     </div>
+                    <input type="hidden" name="downstairs_bedroom_ceiling_sheen" value="">
                 </div>
-                
-                <div class="surface-group wall-surface">
-                    <div class="surface-label">Walls</div>
-                    <input type="text" class="color-input wall-color" id="downstairs_walls_color" placeholder="Enter wall color">
-                    <div class="sheen-pills wall-sheen" data-surface="downstairs_walls">
-                        <button type="button" class="sheen-pill" data-sheen="Flat">Flat</button>
-                        <button type="button" class="sheen-pill" data-sheen="Matte">Matte</button>
-                        <button type="button" class="sheen-pill" data-sheen="Eggshell">Eggshell</button>
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
+
+                <div class="surface-group walls-group">
+                    <label class="surface-label">Walls</label>
+                    <div class="whole-house-indicator" data-type="walls">Using whole-house wall color</div>
+                    <input type="text" class="color-input walls-color" name="downstairs_bedroom_walls_color" placeholder="Enter wall color">
+                    <div class="sheen-pills walls-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_walls_sheen')">Flat</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_walls_sheen')">Matte</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_walls_sheen')">Eggshell</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_walls_sheen')">Satin</button>
                     </div>
+                    <input type="hidden" name="downstairs_bedroom_walls_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Baseboards</div>
-                    <input type="text" class="color-input trim-color" id="downstairs_baseboards_color" placeholder="Enter baseboard color">
-                    <div class="sheen-pills trim-sheen" data-surface="downstairs_baseboards">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Baseboards</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="downstairs_bedroom_baseboards_color" placeholder="Enter baseboard color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_baseboards_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_baseboards_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_baseboards_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="downstairs_bedroom_baseboards_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Doors (2)</div>
-                    <input type="text" class="color-input trim-color" id="downstairs_doors_color" placeholder="Enter door color">
-                    <div class="sheen-pills trim-sheen" data-surface="downstairs_doors">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Doors (2)</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="downstairs_bedroom_doors_color" placeholder="Enter door color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_doors_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_doors_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_doors_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="downstairs_bedroom_doors_sheen" value="">
                 </div>
-                
-                <div class="surface-group trim-surface">
-                    <div class="surface-label">Door Frames (2)</div>
-                    <input type="text" class="color-input trim-color" id="downstairs_doorframes_color" placeholder="Enter door frame color">
-                    <div class="sheen-pills trim-sheen" data-surface="downstairs_doorframes">
-                        <button type="button" class="sheen-pill" data-sheen="Satin">Satin</button>
-                        <button type="button" class="sheen-pill" data-sheen="Semi-Gloss">Semi-Gloss</button>
-                        <button type="button" class="sheen-pill" data-sheen="Gloss">Gloss</button>
+
+                <div class="surface-group trim-group">
+                    <label class="surface-label">Door Frames (2)</label>
+                    <div class="whole-house-indicator" data-type="trim">Using whole-house trim color</div>
+                    <input type="text" class="color-input trim-color" name="downstairs_bedroom_door_frames_color" placeholder="Enter door frame color">
+                    <div class="sheen-pills trim-sheen">
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_door_frames_sheen')">Satin</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_door_frames_sheen')">Semi-Gloss</button>
+                        <button type="button" class="sheen-pill" onclick="selectSheen(this, 'downstairs_bedroom_door_frames_sheen')">Gloss</button>
                     </div>
+                    <input type="hidden" name="downstairs_bedroom_door_frames_sheen" value="">
                 </div>
             </div>
-            
+
             <div class="notes-section">
                 <h3>Additional Notes</h3>
-                <textarea class="notes-textarea" id="notes" placeholder="Any special requests, color placement details, or questions..."></textarea>
+                <textarea class="notes-textarea" name="notes" placeholder="Any special requests, color matching needs, or questions for our team..."></textarea>
             </div>
-            
+
+            <input type="hidden" name="client_name" value="Matt Gilbert">
+            <input type="hidden" name="estimate_number" value="150">
+
             <button type="button" class="submit-btn" id="submitBtn" onclick="submitForm()">Submit Color Selections</button>
         </div>
-        
-        <div class="thank-you" id="thankYou">
-            <h2>Thank You!</h2>
-            <p>Your color selections have been submitted successfully. Our team will review and be in touch soon.</p>
-        </div>
     </div>
-    
+
     <script>
-        // Initialize sheen pill click handlers
-        document.querySelectorAll('.sheen-pills').forEach(container => {
-            container.querySelectorAll('.sheen-pill').forEach(pill => {
-                pill.addEventListener('click', function() {
-                    if (this.disabled) return;
-                    container.querySelectorAll('.sheen-pill').forEach(p => p.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        });
-        
+        let globalWallSheen = '';
+        let globalTrimSheen = '';
+
+        function selectSheen(button, hiddenFieldName) {
+            const pills = button.parentElement.querySelectorAll('.sheen-pill');
+            pills.forEach(pill => pill.classList.remove('active'));
+            button.classList.add('active');
+            document.querySelector(`input[name="${hiddenFieldName}"]`).value = button.textContent;
+        }
+
+        function selectGlobalSheen(type, button, sheen) {
+            const container = button.parentElement;
+            container.querySelectorAll('.sheen-pill').forEach(pill => pill.classList.remove('active'));
+            button.classList.add('active');
+            
+            if (type === 'walls') {
+                globalWallSheen = sheen;
+                if (document.getElementById('wholeHouseWalls').checked) {
+                    applyGlobalWalls();
+                }
+            } else {
+                globalTrimSheen = sheen;
+                if (document.getElementById('wholeHouseTrim').checked) {
+                    applyGlobalTrim();
+                }
+            }
+        }
+
         function toggleWholeHouse(type) {
             if (type === 'walls') {
                 const checked = document.getElementById('wholeHouseWalls').checked;
-                const inputDiv = document.getElementById('wholeHouseWallsInput');
-                inputDiv.classList.toggle('visible', checked);
-                
-                document.querySelectorAll('.wall-surface').forEach(surface => {
-                    const colorInput = surface.querySelector('.wall-color');
-                    const sheenPills = surface.querySelectorAll('.wall-sheen .sheen-pill');
-                    colorInput.disabled = checked;
-                    sheenPills.forEach(pill => pill.disabled = checked);
+                document.getElementById('globalWallsInput').classList.toggle('active', checked);
+                document.querySelectorAll('.walls-group').forEach(group => {
+                    const indicator = group.querySelector('.whole-house-indicator');
+                    const input = group.querySelector('.walls-color');
+                    const sheenPills = group.querySelector('.walls-sheen');
                     if (checked) {
-                        colorInput.value = '';
-                        sheenPills.forEach(pill => pill.classList.remove('active'));
+                        indicator.classList.add('active');
+                        input.disabled = true;
+                        input.style.opacity = '0.5';
+                        sheenPills.style.opacity = '0.5';
+                        sheenPills.querySelectorAll('.sheen-pill').forEach(p => p.disabled = true);
+                    } else {
+                        indicator.classList.remove('active');
+                        input.disabled = false;
+                        input.style.opacity = '1';
+                        sheenPills.style.opacity = '1';
+                        sheenPills.querySelectorAll('.sheen-pill').forEach(p => p.disabled = false);
                     }
                 });
-            } else if (type === 'trim') {
+                if (checked) applyGlobalWalls();
+            } else {
                 const checked = document.getElementById('wholeHouseTrim').checked;
-                const inputDiv = document.getElementById('wholeHouseTrimInput');
-                inputDiv.classList.toggle('visible', checked);
-                
-                document.querySelectorAll('.trim-surface').forEach(surface => {
-                    const colorInput = surface.querySelector('.trim-color');
-                    const sheenPills = surface.querySelectorAll('.trim-sheen .sheen-pill');
-                    colorInput.disabled = checked;
-                    sheenPills.forEach(pill => pill.disabled = checked);
+                document.getElementById('globalTrimInput').classList.toggle('active', checked);
+                document.querySelectorAll('.trim-group').forEach(group => {
+                    const indicator = group.querySelector('.whole-house-indicator');
+                    const input = group.querySelector('.trim-color');
+                    const sheenPills = group.querySelector('.trim-sheen');
                     if (checked) {
-                        colorInput.value = '';
-                        sheenPills.forEach(pill => pill.classList.remove('active'));
+                        indicator.classList.add('active');
+                        input.disabled = true;
+                        input.style.opacity = '0.5';
+                        sheenPills.style.opacity = '0.5';
+                        sheenPills.querySelectorAll('.sheen-pill').forEach(p => p.disabled = true);
+                    } else {
+                        indicator.classList.remove('active');
+                        input.disabled = false;
+                        input.style.opacity = '1';
+                        sheenPills.style.opacity = '1';
+                        sheenPills.querySelectorAll('.sheen-pill').forEach(p => p.disabled = false);
                     }
                 });
+                if (checked) applyGlobalTrim();
             }
         }
-        
-        function getSelectedSheen(container) {
-            const active = container.querySelector('.sheen-pill.active');
-            return active ? active.dataset.sheen : '';
+
+        function applyGlobalWalls() {
+            const color = document.getElementById('globalWallColor').value;
+            document.querySelectorAll('.walls-color').forEach(input => {
+                input.value = color;
+            });
+            document.querySelectorAll('input[name$="_walls_sheen"]').forEach(input => {
+                input.value = globalWallSheen;
+            });
         }
-        
-        function submitForm() {
+
+        function applyGlobalTrim() {
+            const color = document.getElementById('globalTrimColor').value;
+            document.querySelectorAll('.trim-color').forEach(input => {
+                input.value = color;
+            });
+            document.querySelectorAll('input[name$="_baseboards_sheen"], input[name$="_doors_sheen"], input[name$="_door_frames_sheen"]').forEach(input => {
+                if (input.closest('.trim-group')) {
+                    input.value = globalTrimSheen;
+                }
+            });
+        }
+
+        document.getElementById('globalWallColor').addEventListener('input', function() {
+            if (document.getElementById('wholeHouseWalls').checked) {
+                applyGlobalWalls();
+            }
+        });
+
+        document.getElementById('globalTrimColor').addEventListener('input', function() {
+            if (document.getElementById('wholeHouseTrim').checked) {
+                applyGlobalTrim();
+            }
+        });
+
+        async function submitForm() {
             const btn = document.getElementById('submitBtn');
             btn.disabled = true;
             btn.textContent = 'Submitting...';
-            
-            const wholeHouseWalls = document.getElementById('wholeHouseWalls').checked;
-            const wholeHouseTrim = document.getElementById('wholeHouseTrim').checked;
-            
+
             const formData = {
-                client_name: document.getElementById('client_name').value,
-                estimate_number: document.getElementById('estimate_number').value,
-                whole_house_walls: wholeHouseWalls,
-                whole_house_trim: wholeHouseTrim,
-                global_wall_color: wholeHouseWalls ? document.getElementById('globalWallColor').value : '',
-                global_wall_sheen: wholeHouseWalls ? getSelectedSheen(document.getElementById('globalWallSheen')) : '',
-                global_trim_color: wholeHouseTrim ? document.getElementById('globalTrimColor').value : '',
-                global_trim_sheen: wholeHouseTrim ? getSelectedSheen(document.getElementById('globalTrimSheen')) : '',
-                
-                // Primary Bedroom
-                primary_ceiling_color: document.getElementById('primary_ceiling_color').value,
-                primary_ceiling_sheen: getSelectedSheen(document.querySelector('[data-surface="primary_ceiling"]')),
-                primary_walls_color: wholeHouseWalls ? '' : document.getElementById('primary_walls_color').value,
-                primary_walls_sheen: wholeHouseWalls ? '' : getSelectedSheen(document.querySelector('[data-surface="primary_walls"]')),
-                primary_baseboards_color: wholeHouseTrim ? '' : document.getElementById('primary_baseboards_color').value,
-                primary_baseboards_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="primary_baseboards"]')),
-                primary_doors_color: wholeHouseTrim ? '' : document.getElementById('primary_doors_color').value,
-                primary_doors_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="primary_doors"]')),
-                primary_doorframes_color: wholeHouseTrim ? '' : document.getElementById('primary_doorframes_color').value,
-                primary_doorframes_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="primary_doorframes"]')),
-                
-                // Kids Bedroom
-                kids_ceiling_color: document.getElementById('kids_ceiling_color').value,
-                kids_ceiling_sheen: getSelectedSheen(document.querySelector('[data-surface="kids_ceiling"]')),
-                kids_walls_color: wholeHouseWalls ? '' : document.getElementById('kids_walls_color').value,
-                kids_walls_sheen: wholeHouseWalls ? '' : getSelectedSheen(document.querySelector('[data-surface="kids_walls"]')),
-                kids_baseboards_color: wholeHouseTrim ? '' : document.getElementById('kids_baseboards_color').value,
-                kids_baseboards_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="kids_baseboards"]')),
-                kids_doors_color: wholeHouseTrim ? '' : document.getElementById('kids_doors_color').value,
-                kids_doors_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="kids_doors"]')),
-                kids_doorframes_color: wholeHouseTrim ? '' : document.getElementById('kids_doorframes_color').value,
-                kids_doorframes_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="kids_doorframes"]')),
-                
-                // Downstairs Bedroom
-                downstairs_ceiling_color: document.getElementById('downstairs_ceiling_color').value,
-                downstairs_ceiling_sheen: getSelectedSheen(document.querySelector('[data-surface="downstairs_ceiling"]')),
-                downstairs_walls_color: wholeHouseWalls ? '' : document.getElementById('downstairs_walls_color').value,
-                downstairs_walls_sheen: wholeHouseWalls ? '' : getSelectedSheen(document.querySelector('[data-surface="downstairs_walls"]')),
-                downstairs_baseboards_color: wholeHouseTrim ? '' : document.getElementById('downstairs_baseboards_color').value,
-                downstairs_baseboards_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="downstairs_baseboards"]')),
-                downstairs_doors_color: wholeHouseTrim ? '' : document.getElementById('downstairs_doors_color').value,
-                downstairs_doors_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="downstairs_doors"]')),
-                downstairs_doorframes_color: wholeHouseTrim ? '' : document.getElementById('downstairs_doorframes_color').value,
-                downstairs_doorframes_sheen: wholeHouseTrim ? '' : getSelectedSheen(document.querySelector('[data-surface="downstairs_doorframes"]')),
-                
-                notes: document.getElementById('notes').value
+                client_name: document.querySelector('input[name="client_name"]').value,
+                estimate_number: document.querySelector('input[name="estimate_number"]').value,
+                whole_house_walls: document.getElementById('wholeHouseWalls').checked,
+                whole_house_walls_color: document.getElementById('globalWallColor').value,
+                whole_house_walls_sheen: globalWallSheen,
+                whole_house_trim: document.getElementById('wholeHouseTrim').checked,
+                whole_house_trim_color: document.getElementById('globalTrimColor').value,
+                whole_house_trim_sheen: globalTrimSheen,
+                primary_bedroom_ceiling_color: document.querySelector('input[name="primary_bedroom_ceiling_color"]').value,
+                primary_bedroom_ceiling_sheen: document.querySelector('input[name="primary_bedroom_ceiling_sheen"]').value,
+                primary_bedroom_walls_color: document.querySelector('input[name="primary_bedroom_walls_color"]').value,
+                primary_bedroom_walls_sheen: document.querySelector('input[name="primary_bedroom_walls_sheen"]').value,
+                primary_bedroom_baseboards_color: document.querySelector('input[name="primary_bedroom_baseboards_color"]').value,
+                primary_bedroom_baseboards_sheen: document.querySelector('input[name="primary_bedroom_baseboards_sheen"]').value,
+                primary_bedroom_doors_color: document.querySelector('input[name="primary_bedroom_doors_color"]').value,
+                primary_bedroom_doors_sheen: document.querySelector('input[name="primary_bedroom_doors_sheen"]').value,
+                primary_bedroom_door_frames_color: document.querySelector('input[name="primary_bedroom_door_frames_color"]').value,
+                primary_bedroom_door_frames_sheen: document.querySelector('input[name="primary_bedroom_door_frames_sheen"]').value,
+                kids_bedroom_ceiling_color: document.querySelector('input[name="kids_bedroom_ceiling_color"]').value,
+                kids_bedroom_ceiling_sheen: document.querySelector('input[name="kids_bedroom_ceiling_sheen"]').value,
+                kids_bedroom_walls_color: document.querySelector('input[name="kids_bedroom_walls_color"]').value,
+                kids_bedroom_walls_sheen: document.querySelector('input[name="kids_bedroom_walls_sheen"]').value,
+                kids_bedroom_baseboards_color: document.querySelector('input[name="kids_bedroom_baseboards_color"]').value,
+                kids_bedroom_baseboards_sheen: document.querySelector('input[name="kids_bedroom_baseboards_sheen"]').value,
+                kids_bedroom_doors_color: document.querySelector('input[name="kids_bedroom_doors_color"]').value,
+                kids_bedroom_doors_sheen: document.querySelector('input[name="kids_bedroom_doors_sheen"]').value,
+                kids_bedroom_door_frames_color: document.querySelector('input[name="kids_bedroom_door_frames_color"]').value,
+                kids_bedroom_door_frames_sheen: document.querySelector('input[name="kids_bedroom_door_frames_sheen"]').value,
+                downstairs_bedroom_ceiling_color: document.querySelector('input[name="downstairs_bedroom_ceiling_color"]').value,
+                downstairs_bedroom_ceiling_sheen: document.querySelector('input[name="downstairs_bedroom_ceiling_sheen"]').value,
+                downstairs_bedroom_walls_color: document.querySelector('input[name="downstairs_bedroom_walls_color"]').value,
+                downstairs_bedroom_walls_sheen: document.querySelector('input[name="downstairs_bedroom_walls_sheen"]').value,
+                downstairs_bedroom_baseboards_color: document.querySelector('input[name="downstairs_bedroom_baseboards_color"]').value,
+                downstairs_bedroom_baseboards_sheen: document.querySelector('input[name="downstairs_bedroom_baseboards_sheen"]').value,
+                downstairs_bedroom_doors_color: document.querySelector('input[name="downstairs_bedroom_doors_color"]').value,
+                downstairs_bedroom_doors_sheen: document.querySelector('input[name="downstairs_bedroom_doors_sheen"]').value,
+                downstairs_bedroom_door_frames_color: document.querySelector('input[name="downstairs_bedroom_door_frames_color"]').value,
+                downstairs_bedroom_door_frames_sheen: document.querySelector('input[name="downstairs_bedroom_door_frames_sheen"]').value,
+                notes: document.querySelector('textarea[name="notes"]').value
             };
-            
-            fetch('https://hook.us2.make.com/hihc1ayvvug4wzircqxityoxhclqyy88', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => {
+
+            try {
+                const response = await fetch('https://hook.us2.make.com/hihc1ayvvug4wzircqxityoxhclqyy88', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
                 document.getElementById('formContent').classList.add('hidden');
-                document.getElementById('thankYou').classList.add('visible');
-            })
-            .catch(error => {
+                document.getElementById('thankYou').classList.add('active');
+            } catch (error) {
                 console.error('Error:', error);
-                document.getElementById('formContent').classList.add('hidden');
-                document.getElementById('thankYou').classList.add('visible');
-            });
+                btn.disabled = false;
+                btn.textContent = 'Submit Color Selections';
+                alert('There was an error submitting the form. Please try again.');
+            }
         }
     </script>
 </body>
